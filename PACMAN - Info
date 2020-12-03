@@ -1,4 +1,15 @@
-// Your code here
+if(((Xpac==25||Xpac==345)&&Ypac!=105&&Ypac!=185&&Ypac!=305&&Ypac!=385)||((Xpac==45||Xpac==325)&&Ypac>=305&&Ypac<345)||((Xpac==85||Xpac==285)&&Ypac!=345&&Ypac!=385)||((Xpac==125||Xpac==245)&&Ypac!=25&&Ypac!=105&&Ypac!=265&&Ypac!=345&&Ypac!=385)||((Xpac==165||Xpac==205)&&Ypac!=65&&Ypac!=145&&Ypac!=225&&Ypac!=305&&Ypac!=385)){
+  RectanglePlein(Xpac,Ypac,20,20,'white');
+  Ypac=Ypac+20;
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+}
+
+if((Ypac==25&&(Xpac!=165&&Xpac!=345))||(Ypac==65&&Xpac!=345)||(Ypac==105&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||(Ypac==145&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==185&&Xpac!=125)||(Ypac==225&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==265&&(Xpac!=165&&Xpac!=345))||(Ypac==305&&(Xpac!=45&&Xpac!=285&&Xpac!=345))||(Ypac==345&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||Ypac==385&&Xpac!=345){
+  RectanglePlein(Xpac,Ypac,20,20,'white');
+  Xpac=Xpac+20;
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+}
+
 //le contour
 RectanglePlein(5,5,20,120,'black');
 RectanglePlein(5,5,180,20,'black');
