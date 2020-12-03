@@ -1,3 +1,4 @@
+// Your code here
 //le contour
 RectanglePlein(5,5,20,120,'black');
 RectanglePlein(5,5,180,20,'black');
@@ -72,7 +73,20 @@ WaitPreload(A_Executer);
 
 
 //les persos
-Xpac=185;
+
+
+class Personnages {
+
+	var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+	var fantome1=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+	var fantome2=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+	var fantome3=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+	var fantome4=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+  
+}
+
+
+/*Xpac=185;
 Ypac=165;
 Xfant1=25;
 Yfant1=25;
@@ -103,14 +117,10 @@ Y2fant4=Yfant4+10;
   DrawImageObject(fantome2,X2fant2,Y2fant2,20,20);
   DrawImageObject(fantome3,X2fant3,Y2fant3,20,20);
   DrawImageObject(fantome4,X2fant4,Y2fant4,20,20);
-}
+}*/
 
-GRACE A CA J’AI APPRIS QUELQUE CHOSE
-ON PEUT PAS CREER PLUSIEURS FOIS LA MEME IMAGE
-SI ON EN CREE UNE NOUVELLE ELLE REMPLACE L’ANCIENNE
-DONC CA NOUS FACILITE LA TACHE DE OUF
 
-Xpac=100;
+/*Xpac=100;
 Ypac=100;
 var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
 function A_Executer(){
@@ -141,6 +151,71 @@ for(i=0;i<10;i=i+1){
   }
 }
 }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function draw(entity) {
+  drawImageObject(entity.sprite, entity.posX, entity.posY, 20, 20);
+}
+
+function update(entity) {
+  // code qui contient la logique pour les fantomes
+}
+
+function createEntity(spriteURL, posX, posY) {
+  return {
+    sprite: preloadImage(spriteURL),
+    posX: posX,
+    posY: posY
+  }
+}
+
+let pacman = createEntity("https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg", 55, 20);
+
+let pacman = createEntity("pacman.jpg", 55, 20);
+let phantoms = [createEntity("phantom_1.jpg", 10, 10), createEntity("phantom_2.jpg", 10, 10)]; // pour chaque fantome
+
+while(true) {// boucle principale du jeu
+  // il faut clear l'écran ici, trouve la fonction qui fait ça
+
+  // on affiche les fantomes un par un
+  for entity of phantoms  {
+    update_phantom(entity);
+    draw(entity);
+  }
+
+  // on affiche pacman
+  draw(pacman);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var canvas = document.getElementById("canvas");
@@ -153,7 +228,7 @@ var object = {
     x: 10,
     y: 10, 
     color: "#FF0000" 
-}    
+};  
 
 document.addEventListener('keydown', function(event) {
     //left
@@ -199,6 +274,7 @@ var Keys = {
         left: false,
         right: false
     };
+
 //Ensuite mettre à jour dans les événements clés:
 
 window.onkeydown = function(e) {
@@ -222,7 +298,6 @@ window.onkeyup = function(e) {
 };
 
 
-
 //DEPLACEMENT DE PACMAN (DU BLED)
 
 // Your code here
@@ -234,7 +309,6 @@ function A_Executer(){
 }
 WaitPreload(A_Executer);
 
-// Your code here
 var Keys = {
         up: false,
         down: false,
@@ -277,4 +351,7 @@ window.onkeyup = function(e) {
     else if (kc === 39) Keys.right = false;
     else if (kc === 40) Keys.down = false;
 };
+
+
+//tracking de pacman par des fantomes
 
