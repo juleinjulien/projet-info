@@ -1,15 +1,5 @@
-if(((Xpac==25||Xpac==345)&&Ypac!=105&&Ypac!=185&&Ypac!=305&&Ypac!=385)||((Xpac==45||Xpac==325)&&Ypac>=305&&Ypac<345)||((Xpac==85||Xpac==285)&&Ypac!=345&&Ypac!=385)||((Xpac==125||Xpac==245)&&Ypac!=25&&Ypac!=105&&Ypac!=265&&Ypac!=345&&Ypac!=385)||((Xpac==165||Xpac==205)&&Ypac!=65&&Ypac!=145&&Ypac!=225&&Ypac!=305&&Ypac!=385)){
-  RectanglePlein(Xpac,Ypac,20,20,'white');
-  Ypac=Ypac+20;
-  DrawImageObject(pacman,Xpac,Ypac,20,20);
-}
-
-if((Ypac==25&&(Xpac!=165&&Xpac!=345))||(Ypac==65&&Xpac!=345)||(Ypac==105&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||(Ypac==145&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==185&&Xpac!=125)||(Ypac==225&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==265&&(Xpac!=165&&Xpac!=345))||(Ypac==305&&(Xpac!=45&&Xpac!=285&&Xpac!=345))||(Ypac==345&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||Ypac==385&&Xpac!=345){
-  RectanglePlein(Xpac,Ypac,20,20,'white');
-  Xpac=Xpac+20;
-  DrawImageObject(pacman,Xpac,Ypac,20,20);
-}
-
+//PROGRAMME "COMPLET"
+Contenu: La map + Déplacement de pacman fini
 //le contour
 RectanglePlein(5,5,20,120,'black');
 RectanglePlein(5,5,180,20,'black');
@@ -65,7 +55,70 @@ RectanglePlein(155,175,80,40,'white');
 Ligne(5,185,5,205,'blue');
 Ligne(385,185,385,205,'blue');
 
-//les persos
+//DEPLACEMENT DE PACMAN (DU BLED)
+
+Xpac=25;
+Ypac=25;
+var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+function A_Executer(){
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+}
+WaitPreload(A_Executer);
+
+var Keys = {
+        up: false,
+        down: false,
+        left: false,
+        right: false
+    };
+
+window.onkeydown = function(e){
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37){ Keys.left = true;                
+                        
+         if((Ypac==25&&(Xpac!=205&&Xpac!=25))||(Ypac==65&&Xpac!=25)||(Ypac==105&&(Xpac!=25&&Xpac!=125&&Xpac!=205&&Xpac!=285))||(Ypac==145&&(Xpac!=125&&Xpac!=85&&Xpac!=285))||(Ypac==185&&Xpac!=245)||(Ypac==225&&(Xpac!=85&&Xpac!=125&&Xpac!=285))||(Ypac==265&&(Xpac!=25&&Xpac!=205))||(Ypac==305&&(Xpac!=25&&Xpac!=85&&Xpac!=325))||(Ypac==345&&(Xpac!=25&&Xpac!=125&&Xpac!=205&&Xpac!=285))||(Ypac==385&&Xpac!=25)){
+           RectanglePlein(Xpac,Ypac,20,20,'white');
+           Xpac=Xpac-20;
+           DrawImageObject(pacman,Xpac,Ypac,20,20);
+         }
+    }                  
+    else if (kc === 38){ Keys.up = true;    //so check exclusively
+        if(((Xpac==25||Xpac==345)&&Ypac!=345&&Ypac!=265&&Ypac!=165&&Ypac!=25)||((Xpac==45||Xpac==325)&&Ypac>=305&&Ypac<345)||((Xpac==85||Xpac==285)&&Ypac!=385&&Ypac!=25)||((Xpac==125||Xpac==245)&&Ypac!=25&&Ypac!=65&&Ypac!=145&&Ypac!=305&&Ypac!=385)||((Xpac==165||Xpac==205)&&Ypac!=25&&Ypac!=105&&Ypac!=225&&Ypac!=265&&Ypac!=345)){
+          RectanglePlein(Xpac,Ypac,20,20,'white');
+          Ypac=Ypac-20;
+          DrawImageObject(pacman,Xpac,Ypac,20,20);
+        }
+    }
+    else if (kc === 39){ Keys.right = true;
+        if((Ypac==25&&(Xpac!=165&&Xpac!=345))||(Ypac==65&&Xpac!=345)||(Ypac==105&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||(Ypac==145&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==185&&Xpac!=125)||(Ypac==225&&(Xpac!=85&&Xpac!=245&&Xpac!=285))||(Ypac==265&&(Xpac!=165&&Xpac!=345))||(Ypac==305&&(Xpac!=45&&Xpac!=285&&Xpac!=345))||(Ypac==345&&(Xpac!=85&&Xpac!=165&&Xpac!=245&&Xpac!=345))||Ypac==385&&Xpac!=345){
+          RectanglePlein(Xpac,Ypac,20,20,'white');
+          Xpac=Xpac+20;
+          DrawImageObject(pacman,Xpac,Ypac,20,20);
+        }
+    }
+    else if (kc === 40){ Keys.down = true;
+        if(((Xpac==25||Xpac==345)&&Ypac!=105&&Ypac!=185&&Ypac!=305&&Ypac!=385)||((Xpac==45||Xpac==325)&&Ypac>=305&&Ypac<345)||((Xpac==85||Xpac==285)&&Ypac!=345&&Ypac!=385)||((Xpac==125||Xpac==245)&&Ypac!=25&&Ypac!=105&&Ypac!=265&&Ypac!=345&&Ypac!=385)||((Xpac==165||Xpac==205)&&Ypac!=65&&Ypac!=145&&Ypac!=225&&Ypac!=305&&Ypac!=385)){
+          RectanglePlein(Xpac,Ypac,20,20,'white');
+          Ypac=Ypac+20;
+          DrawImageObject(pacman,Xpac,Ypac,20,20);
+        }
+   }
+};
+
+window.onkeyup = function(e) {
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37) Keys.left = false;
+    else if (kc === 38) Keys.up = false;
+    else if (kc === 39) Keys.right = false;
+    else if (kc === 40) Keys.down = false;
+};
+__________________________________________________________________________________________________________________________________________________________________________________
+//LES BOUTS DE PROGRAMMES
+//les persos (Test)
 
 var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
 var fantome1=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
