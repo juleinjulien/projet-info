@@ -1,0 +1,280 @@
+//le contour
+RectanglePlein(5,5,20,120,'black');
+RectanglePlein(5,5,180,20,'black');
+RectanglePlein(205,5,180,20,'black');
+RectanglePlein(365,5,20,120,'black');
+RectanglePlein(305,125,80,60,'black');
+RectanglePlein(5,125,80,60,'black');
+RectanglePlein(5,205,80,60,'black');
+RectanglePlein(305,205,80,60,'black');
+RectanglePlein(5,265,20,140,'black');
+RectanglePlein(365,265,20,140,'black');
+RectanglePlein(5,405,380,20,'black');
+RectanglePlein(185,5,20,60);
+RectanglePlein(5,325,40,20,'black');
+RectanglePlein(345,325,20,20,'black');
+//les rectangles intérieurs
+RectanglePlein(45,45,40,20,'black');
+RectanglePlein(105,45,60,20,'black');
+RectanglePlein(305,45,40,20,'black');
+RectanglePlein(225,45,60,20,'black');
+RectanglePlein(45,85,40,20,'black');
+RectanglePlein(305,85,40,20,'black');
+RectanglePlein(105,205,20,60,'black');
+RectanglePlein(265,205,20,60,'black');
+RectanglePlein(105,285,60,20,'black');
+RectanglePlein(225,285,60,20,'black');
+//les T
+RectanglePlein(105,85,20,100,'black');
+RectanglePlein(125,125,40,20,'black');
+RectanglePlein(145,85,100,20,'black');
+RectanglePlein(185,105,20,40,'black');
+RectanglePlein(265,85,20,100,'black');
+RectanglePlein(225,125,40,20,'black');
+RectanglePlein(145,245,100,20,'black');
+RectanglePlein(185,265,20,40,'black');
+RectanglePlein(145,325,100,20,'black');
+RectanglePlein(185,345,20,40,'black');
+RectanglePlein(45,365,120,20,'black');
+RectanglePlein(105,325,20,40,'black');
+RectanglePlein(225,365,120,20,'black');
+RectanglePlein(265,325,20,40,'black');
+//les L
+RectanglePlein(45,285,40,20,'black');
+RectanglePlein(65,305,20,40,'black');
+RectanglePlein(305,285,40,20,'black');
+RectanglePlein(305,305,20,40,'black');
+//la maison des fantômes
+RectanglePlein(145,165,40,60,'black');
+RectanglePlein(205,165,40,60,'black');
+RectanglePlein(145,205,100,20,'black');
+RectanglePlein(155,175,80,40,'white');
+
+Ligne(5,185,5,205,'blue');
+Ligne(385,185,385,205,'blue');
+
+//les persos
+
+var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+var fantome1=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome2=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome3=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome4=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+function A_Executer(){
+  DrawImageObject(pacman,185,165,20,20);
+  DrawImageObject(fantome1,25,25,20,20);
+  DrawImageObject(fantome2,345,25,20,20);
+  DrawImageObject(fantome3,25,385,20,20);
+  DrawImageObject(fantome4,345,385,20,20);
+}
+WaitPreload(A_Executer);
+
+
+
+//les persos
+Xpac=185;
+Ypac=165;
+Xfant1=25;
+Yfant1=25;
+Xfant2=345;
+Yfant2=25;
+Xfant3=25;
+Yfant3=385;
+Xfant4=345;
+Yfant4=385;
+for(i=0;i<2;i=i+1){
+var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+var fantome1=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome2=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome3=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+var fantome4=PreloadImage('https://assets.stickpng.com/images/580b57fcd9996e24bc43c31b.png');
+X2pac=Xpac+10;
+Y2pac=Ypac+10;
+X2fant1=Xfant1+10;
+Y2fant1=Yfant1+10;
+X2fant2=Xfant2+10;
+Y2fant2=Yfant2+10;
+X2fant3=Xfant3+10;
+Y2fant3=Yfant3+10;
+X2fant4=Xfant4+10;
+Y2fant4=Yfant4+10;
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+  DrawImageObject(fantome1,X2fant1,Y2fant1,20,20);
+  DrawImageObject(fantome2,X2fant2,Y2fant2,20,20);
+  DrawImageObject(fantome3,X2fant3,Y2fant3,20,20);
+  DrawImageObject(fantome4,X2fant4,Y2fant4,20,20);
+}
+
+GRACE A CA J’AI APPRIS QUELQUE CHOSE
+ON PEUT PAS CREER PLUSIEURS FOIS LA MEME IMAGE
+SI ON EN CREE UNE NOUVELLE ELLE REMPLACE L’ANCIENNE
+DONC CA NOUS FACILITE LA TACHE DE OUF
+
+Xpac=100;
+Ypac=100;
+var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+function A_Executer(){
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+}
+WaitPreload(A_Executer);
+for(i=0;i<10;i=i+1){
+  XouY=Hasard(3);
+  if(XouY<2){
+    //X
+    if(XouY==0){
+      //gauche
+      Xpac=Xpac-20;
+    }
+    else{
+      //droite
+      Xpac=Xpac+20;
+    }
+  }
+  else{
+    if(XouY==2){
+      //bas
+      Ypac=Ypac+20;
+    }
+    else{
+      //haut
+      Ypac=Ypac-20;
+  }
+}
+}
+
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext('2d');
+canvas.width = 600;
+canvas.height = 600;
+var object = {
+    height: 40,
+    width: 40,
+    x: 10,
+    y: 10, 
+    color: "#FF0000" 
+}    
+
+document.addEventListener('keydown', function(event) {
+    //left
+    if(event.keyCode == 37) {
+        object.x -= 1;
+    }
+    //top
+    else if(event.keyCode == 38) {
+        object.y -= 1;
+    }
+    //right
+    else if(event.keyCode == 39) {
+        object.x += 1;
+    }
+    //bottom
+    else if(event.keyCode == 40) {
+        object.y += 1;
+    }
+});
+
+function renderCanvas(){
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, 600, 600);
+} 
+function renderObject(){
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(object.x, object.y, object.width, object.height);
+}
+function run(){
+    renderCanvas();
+    renderObject();
+}
+
+setInterval(run, 10);
+
+
+
+//Utilisation de drapeaux ou d'un objet avec les drapeaux qui est mis à jour lorsque les touches sont pressées et sortie:
+
+var Keys = {
+        up: false,
+        down: false,
+        left: false,
+        right: false
+    };
+//Ensuite mettre à jour dans les événements clés:
+
+window.onkeydown = function(e) {
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37) Keys.left = true;  //only one key per event
+    else if (kc === 38) Keys.up = true;    //so check exclusively
+    else if (kc === 39) Keys.right = true;
+    else if (kc === 40) Keys.down = true;
+};
+
+window.onkeyup = function(e) {
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37) Keys.left = false;
+    else if (kc === 38) Keys.up = false;
+    else if (kc === 39) Keys.right = false;
+    else if (kc === 40) Keys.down = false;
+};
+
+
+
+//DEPLACEMENT DE PACMAN (DU BLED)
+
+// Your code here
+Xpac=100;
+Ypac=100;
+var pacman=PreloadImage('https://img2.freepng.fr/20180401/pwe/kisspng-pac-man-computer-icons-emoticon-smiley-clip-art-pac-man-5ac079d0d77eb1.2888210015225635368827.jpg');
+function A_Executer(){
+  DrawImageObject(pacman,Xpac,Ypac,20,20);
+}
+WaitPreload(A_Executer);
+
+// Your code here
+var Keys = {
+        up: false,
+        down: false,
+        left: false,
+        right: false
+    };
+
+window.onkeydown = function(e) {
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37){ Keys.left = true; //only one key per event
+                        pacman='none';
+                        Xpac=Xpac-20;
+                        DrawImageObject(pacman,Xpac,Ypac,20,20);
+                       }
+    else if (kc === 38){ Keys.up = true;    //so check exclusively
+                        pacman='none';
+                        Ypac=Ypac-20;
+                        DrawImageObject(pacman,Xpac,Ypac,20,20);
+                       }
+    else if (kc === 39){ Keys.right = true;
+                        pacman='none';
+                        Xpac=Xpac+20;
+                        DrawImageObject(pacman,Xpac,Ypac,20,20);
+                       }
+    else if (kc === 40){ Keys.down = true;
+                        pacman='none';
+                        Ypac=Ypac+20;
+                        DrawImageObject(pacman,Xpac,Ypac,20,20);
+                       }
+};
+
+window.onkeyup = function(e) {
+    var kc = e.keyCode;
+    e.preventDefault();
+
+    if      (kc === 37) Keys.left = false;
+    else if (kc === 38) Keys.up = false;
+    else if (kc === 39) Keys.right = false;
+    else if (kc === 40) Keys.down = false;
+};
+
